@@ -6,6 +6,8 @@
 
 <title>static-website - RDoc Documentation</title>
 
+  
+  
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,6 +18,8 @@
   ga('send', 'pageview');
 
 </script>
+
+  
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -92,13 +96,19 @@
   
     <li><a href="./git-cmds_txt.html">git-cmds</a>
   
+    <li><a href="./home_txt.html">home</a>
+  
     <li><a href="./java_txt.html">java</a>
   
     <li><a href="./mac-cmds_txt.html">mac-cmds</a>
   
     <li><a href="./metaprogramming_txt.html">metaprogramming</a>
   
+    <li><a href="./opensource-projects_txt.html">opensource-projects</a>
+  
     <li><a href="./psql_txt.html">psql</a>
+  
+    <li><a href="./python_txt.html">python</a>
   
     <li><a href="./rails-cmds_txt.html">rails-cmds</a>
   
@@ -140,6 +150,8 @@
 <ul><li>
 <p><a
 href="http://doughazell.github.io/git-doc/index.html">doughazell.github.io/git-doc/index.html</a></p>
+</li><li>
+<p><a href="https://doughazell.github.io">doughazell.github.io</a>/</p>
 </li></ul>
 
 <h1 id="label-Install+WYSIWYG+HTML+editor">Install WYSIWYG HTML editor<span><a href="#label-Install+WYSIWYG+HTML+editor">&para;</a> <a href="#top">&uarr;</a></span></h1>
@@ -206,53 +218,48 @@ href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pa
 vi _head.rhtml</p>
 
 <pre>&lt;% if @options.g_a then %&gt;
-&lt;script&gt;
-  (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,&#39;script&#39;,&#39;https://www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);
-
-  ga(&#39;create&#39;, &#39;UA-83416778-1&#39;, &#39;auto&#39;);
-  ga(&#39;send&#39;, &#39;pageview&#39;);
-
-&lt;/script&gt;
+  &lt;% gaFile = File.absolute_path(@options.root + &#39;.google-analytics&#39;)  %&gt;
+  &lt;% if File.exist?(gaFile) then %&gt;
+&lt;%= File.read(gaFile) %&gt;
+  &lt;% end %&gt;
 &lt;% end %&gt;</pre>
 
 <h3 id="label-options.rb">options.rb<span><a href="#label-options.rb">&para;</a> <a href="#top">&uarr;</a></span></h3>
 
 <p>~/.rvm/gems/ruby-2.2.2/gems/rdoc-4.2.2/lib/rdoc$ vi options.rb</p>
 
-<p>1 ———————————————————————————————</p>
-
-<pre>...
-attr_accessor :template_stylesheets
-# 31/8/16 DH: Adding command-line opt to add Google Analytics to output
-attr_accessor :g_a</pre>
-
-<p>2 ———————————————————————————————</p>
-
-<pre>...
-@write_options = false
-# 31/8/16 DH: Adding Google Analytics command line option
-@g_a = false</pre>
-
-<p>3  ——————————————————————————————–</p>
-
-<pre>def parse argv
+<pre>class RDoc::Options
+# 1 ---------------------------------------------------------------------------------------------
   ...
-  opts = OptionParser.new do |opt|
+  attr_accessor :template_stylesheets
+  # 31/8/16 DH: Adding command-line opt to add Google Analytics to output
+  attr_accessor :g_a
+
+# 2 ---------------------------------------------------------------------------------------------
+  def init_ivars
     ...
-    # 31/8/16 DH: Adding Google Analytics command-line option
-    opt.on(&quot;-ga&quot;,
-           &quot;Add Google Analytics to output.&quot;) do |value|
-      @g_a = true
-    end
-
-    opt.separator nil
-
+    @write_options = false
+    # 31/8/16 DH: Adding Google Analytics command line option
+    @g_a = false
   end
-  ...
-end</pre>
+
+# 3  --------------------------------------------------------------------------------------------
+  def parse argv
+    ...
+    opts = OptionParser.new do |opt|
+      ...
+      # 31/8/16 DH: Adding Google Analytics command-line option
+      opt.on(&quot;-ga&quot;,
+             &quot;Add Google Analytics to output.&quot;) do |value|
+        @g_a = true
+      end
+
+      opt.separator nil
+
+    end
+    ...
+  end
+end # END: &#39;class RDoc::Options&#39;</pre>
 </main>
 
 

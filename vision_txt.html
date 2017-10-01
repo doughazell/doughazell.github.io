@@ -6,6 +6,8 @@
 
 <title>vision - RDoc Documentation</title>
 
+  
+  
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,6 +18,8 @@
   ga('send', 'pageview');
 
 </script>
+
+  
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -66,9 +70,17 @@
   <h3>Table of Contents</h3>
 
   <ul class="link-list" role="directory">
-    <li><a href="#label-Process+so+far">Process so far</a>
+    <li><a href="#label-PROCESS+SO+FAR">PROCESS SO FAR</a>
     <li><a href="#label-2015">2015</a>
     <li><a href="#label-2016">2016</a>
+    <li><a href="#label-OPENGL">OPENGL</a>
+    <li><a href="#label-OpenGL+Shading+Language">OpenGL Shading Language</a>
+    <li><a href="#label-OPENCV">OPENCV</a>
+    <li><a href="#label-Python">Python</a>
+    <li><a href="#label-EIGENFACES">EIGENFACES</a>
+    <li><a href="#label-Vector">Vector</a>
+    <li><a href="#label-Arrays">Arrays</a>
+    <li><a href="#label-Practical+implementation">Practical implementation</a>
   </ul>
 </div>
 
@@ -85,13 +97,19 @@
   
     <li><a href="./git-cmds_txt.html">git-cmds</a>
   
+    <li><a href="./home_txt.html">home</a>
+  
     <li><a href="./java_txt.html">java</a>
   
     <li><a href="./mac-cmds_txt.html">mac-cmds</a>
   
     <li><a href="./metaprogramming_txt.html">metaprogramming</a>
   
+    <li><a href="./opensource-projects_txt.html">opensource-projects</a>
+  
     <li><a href="./psql_txt.html">psql</a>
+  
+    <li><a href="./python_txt.html">python</a>
   
     <li><a href="./rails-cmds_txt.html">rails-cmds</a>
   
@@ -131,7 +149,7 @@
 
 <main role="main" aria-label="Page vision.txt">
 
-<h1 id="label-Process+so+far">Process so far<span><a href="#label-Process+so+far">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<h1 id="label-PROCESS+SO+FAR">PROCESS SO FAR<span><a href="#label-PROCESS+SO+FAR">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
 <h3 id="label-2015">2015<span><a href="#label-2015">&para;</a> <a href="#top">&uarr;</a></span></h3>
 <ul><li>
@@ -147,8 +165,6 @@
 <p>7-11 July - Help Iain move out from Kinrara</p>
 </li><li>
 <p>14 Aug - Sent email to John saying “no” to 80th party</p>
-</li><li>
-<p>21 Sept - Found rent being back dated so ~£1400 outstanding</p>
 </li><li>
 <p>30 Sept - Download Computer vison models book</p>
 </li><li>
@@ -168,7 +184,92 @@
 <p>June - Finish LSD-SLAM paper</p>
 </li><li>
 <p>16 June - Install and run lsd_slam_viewer</p>
+</li><li>
+<p>18 Nov - Study OpenGL (having corrupted my Ubuntu partition in upgrade to
+16.04-Xenial Xerus)</p>
 </li></ul>
+
+<h1 id="label-OPENGL">OPENGL<span><a href="#label-OPENGL">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h3 id="label-OpenGL+Shading+Language">OpenGL Shading Language<span><a href="#label-OpenGL+Shading+Language">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Control of graphics pipeline without ARB assembly language or
+hardware-specific langs</p>
+<ul><li>
+<p><a
+href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language">en.wikipedia.org/wiki/OpenGL_Shading_Language</a></p>
+</li></ul>
+
+<h1 id="label-OPENCV">OPENCV<span><a href="#label-OPENCV">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p><a href="http://docs.opencv.org/2.4">docs.opencv.org/2.4</a>/</p>
+<ul><li>
+<p>Alternative to Matlab</p>
+
+<p><a
+href="https://www.learnopencv.com/opencv-c-vs-python-vs-matlab-for-computer-vision">www.learnopencv.com/opencv-c-vs-python-vs-matlab-for-computer-vision</a>/</p>
+</li></ul>
+
+<h3 id="label-Python">Python<span><a href="#label-Python">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>(25/1/17)</p>
+
+<p><a
+href="https://github.com/opencv/opencv/tree/2.4/modules/python/src2">github.com/opencv/opencv/tree/2.4/modules/python/src2</a></p>
+
+<p>Check version:</p>
+
+<pre>$ python
+&gt;&gt;&gt; import cv2
+&gt;&gt;&gt; cv2.__version__
+&#39;3.1.0-dev&#39;
+
+$ env
+PYTHONPATH=/opt/ros/kinetic/lib/python2.7/dist-packages</pre>
+
+<h1 id="label-EIGENFACES">EIGENFACES<span><a href="#label-EIGENFACES">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>“Eigenfaces is the name given to a set of eigenvectors when they are used
+in the  computer vision problem of human face recognition”</p>
+
+<h3 id="label-Vector">Vector<span><a href="#label-Vector">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>A list of data items like a 1-D array</p>
+
+<h3 id="label-Arrays">Arrays<span><a href="#label-Arrays">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>“We can think of a vector as a list that has one dimension. It is a row of
+data.  An array is a list that is arranged in multiple dimensions.  A
+two-dimensional array is a vector of vectors that are all of the same
+length.”</p>
+
+<h3 id="label-Practical+implementation">Practical implementation<span><a href="#label-Practical+implementation">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><a
+href="https://www.youtube.com/watch?v=SaEmG4wcFfg">www.youtube.com/watch?v=SaEmG4wcFfg</a></p>
+<ul><li>
+<p>Prepare set of training images in single matrix T, where each col is an
+image (a vector)</p>
+</li><li>
+<p>Avg image calculated and subtracted from each original image</p>
+</li><li>
+<p>Calc eigenvectors and eigenvalues of covariance matrix, S</p>
+
+<p>Eigenvectors of covariance  matrix are called eigenfaces</p>
+
+<p>They are directions in which images diff from mean</p>
+</li><li>
+<p>Create threshold E on total variance</p>
+
+<p>k is smallest number satisfying:</p>
+
+<p>n(lambda-1 + lambda-2 + … + lambda-k) / variance &gt; E</p>
+</li></ul>
+
+<p>If working with 100 x 100 image then obtain 10,000 eigenvectors</p>
+
+<p>but most faces can be ID&#39;d using projection on 100-150 eigenfaces (so
+reduce computation)</p>
 </main>
 
 

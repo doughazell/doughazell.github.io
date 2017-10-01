@@ -6,6 +6,8 @@
 
 <title>railsCasts2016 - RDoc Documentation</title>
 
+  
+  
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,6 +18,8 @@
   ga('send', 'pageview');
 
 </script>
+
+  
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -82,6 +86,7 @@
     <li><a href="#label-GET+to+POST">GET to POST</a>
     <li><a href="#label-14+-+Image+Manipulation+-23374+">14 - Image Manipulation #374 </a>
     <li><a href="#label-15+-+FnordMetric+-23378+">15 - FnordMetric #378 </a>
+    <li><a href="#label-Update+of+fnordmetric-1.2.9+gem">Update of fnordmetric-1.2.9 gem</a>
     <li><a href="#label-16+-+MiniProfiler+-23368">16 - MiniProfiler #368</a>
     <li><a href="#label-Profiling+app+in+-27production-27+mode">Profiling app in &#39;production&#39; mode</a>
     <li><a href="#label-17+-+Twitter+Bootstrap+Basics+-23328">17 - Twitter Bootstrap Basics #328</a>
@@ -103,13 +108,19 @@
   
     <li><a href="../git-cmds_txt.html">git-cmds</a>
   
+    <li><a href="../home_txt.html">home</a>
+  
     <li><a href="../java_txt.html">java</a>
   
     <li><a href="../mac-cmds_txt.html">mac-cmds</a>
   
     <li><a href="../metaprogramming_txt.html">metaprogramming</a>
   
+    <li><a href="../opensource-projects_txt.html">opensource-projects</a>
+  
     <li><a href="../psql_txt.html">psql</a>
+  
+    <li><a href="../python_txt.html">python</a>
   
     <li><a href="../rails-cmds_txt.html">rails-cmds</a>
   
@@ -751,6 +762,38 @@ href="http://railscasts.com/episodes/378-fnordmetric">railscasts.com/episodes/37
 <pre>&gt;&gt; Thin web server (v1.3.1 codename Triple Espresso)
 &gt;&gt; Listening on 0.0.0.0:4242, CTRL+C to stop</pre>
 </li></ul>
+
+<h3 id="label-Update+of+fnordmetric-1.2.9+gem">Update of fnordmetric-1.2.9 gem<span><a href="#label-Update+of+fnordmetric-1.2.9+gem">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>(30/8/16)</p>
+
+<p>Solving Ctrl-C block for when Thin is started via Rack</p>
+
+<pre>&#39;~/.rvm/gems/ruby-2.2.2/gems/fnordmetric-1.2.9/lib/fnordmetric/web/web.rb&#39;:
+
+class FnordMetric::Web
+  def initialize(opts)
+    @opts = opts
+    @opts[:server] ||= &quot;thin&quot;
+    @opts[:host]   ||= &quot;0.0.0.0&quot;
+    @opts[:port]   ||= &quot;4242&quot;
+  end
+  ...
+  def initialized
+    ...
+    Rack::Server.start(
+      :app =&gt; dispatch,
+      :server =&gt; server,
+      :Host =&gt; host,
+      :Port =&gt; port,
+
+      # 30/8/16 DH: Allowing Ctrl-C to work with Thin recent versions
+      :signals =&gt; @opts[:signals]
+    )
+  end
+end</pre>
+
+<p>FnordMetric::Web.new(port: 4242, signals: false)</p>
 
 <h1 id="label-16+-+MiniProfiler+-23368">16 - MiniProfiler #368<span><a href="#label-16+-+MiniProfiler+-23368">&para;</a> <a href="#top">&uarr;</a></span></h1>
 

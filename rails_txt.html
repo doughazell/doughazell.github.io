@@ -6,6 +6,8 @@
 
 <title>rails - RDoc Documentation</title>
 
+  
+  
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,6 +18,8 @@
   ga('send', 'pageview');
 
 </script>
+
+  
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -94,6 +98,11 @@
     <li><a href="#label-16+-+ActiveSupport-3A-3AInflector">16 - ActiveSupport::Inflector</a>
     <li><a href="#label-17+-+Railtie">17 - Railtie</a>
     <li><a href="#label-18+-+Gems-2FBundler">18 - Gems/Bundler</a>
+    <li><a href="#label-19+-+Named+yield+-2B+-27content_for-27">19 - Named yield + &#39;content_for&#39;</a>
+    <li><a href="#label-20+-+Caching">20 - Caching</a>
+    <li><a href="#label-21+-+Rake">21 - Rake</a>
+    <li><a href="#label-spree_auth-3Aadmin-3Acreate">spree_auth:admin:create</a>
+    <li><a href="#label-22+-+Bundler">22 - Bundler</a>
   </ul>
 </div>
 
@@ -110,13 +119,19 @@
   
     <li><a href="./git-cmds_txt.html">git-cmds</a>
   
+    <li><a href="./home_txt.html">home</a>
+  
     <li><a href="./java_txt.html">java</a>
   
     <li><a href="./mac-cmds_txt.html">mac-cmds</a>
   
     <li><a href="./metaprogramming_txt.html">metaprogramming</a>
   
+    <li><a href="./opensource-projects_txt.html">opensource-projects</a>
+  
     <li><a href="./psql_txt.html">psql</a>
+  
+    <li><a href="./python_txt.html">python</a>
   
     <li><a href="./rails-cmds_txt.html">rails-cmds</a>
   
@@ -189,12 +204,26 @@ Decorator is a design pattern to change things at run-time, it is used in Spree 
 
 <h1 id="label-2+-+Rails+extension+of+Ruby+getter-2Fsetter+definition">2 - Rails extension of Ruby getter/setter definition<span><a href="#label-2+-+Rails+extension+of+Ruby+getter-2Fsetter+definition">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
+<p><a
+href="http://guides.rubyonrails.org/active_support_core_extensions.html#class-attributes">guides.rubyonrails.org/active_support_core_extensions.html#class-attributes</a></p>
+<ul><li>
+<p><a
+href="https://coderwall.com/p/xhcmbg/cattr_accessor-vs-class_attribute">coderwall.com/p/xhcmbg/cattr_accessor-vs-class_attribute</a></p>
+
+<p>&#39;class_attribute&#39; PREVENTS subclasses overriding value of base
+class</p>
+
+<p>&#39;cattr_accessor&#39; subclass changes ALSO change base class variable</p>
+</li></ul>
+
 <p>Ruby = &#39;attr_accessor&#39; for instances only</p>
 
 <pre>Rails += &#39;cattr_accessor&#39; for class access
-         &#39;mattr_accessor&#39; for module access
-
-http://stackoverflow.com/questions/185573/what-is-mattr-accessor-in-a-rails-module</pre>
+         &#39;mattr_accessor&#39; for module access</pre>
+<ul><li>
+<p><a
+href="http://stackoverflow.com/questions/185573/what-is-mattr-accessor-in-a-rails-module">stackoverflow.com/questions/185573/what-is-mattr-accessor-in-a-rails-module</a></p>
+</li></ul>
 
 <h1 id="label-3+-+Respond_to">3 - Respond_to<span><a href="#label-3+-+Respond_to">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
@@ -358,6 +387,9 @@ href="http://guides.rubyonrails.org/association_basics.html#polymorphic-associat
 <h3 id="label-Scoping">Scoping<span><a href="#label-Scoping">&para;</a> <a href="#top">&uarr;</a></span></h3>
 
 <p><a
+href="http://guides.rubyonrails.org/active_record_querying.html#scopes">guides.rubyonrails.org/active_record_querying.html#scopes</a></p>
+
+<p><a
 href="http://api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html">api.rubyonrails.org/classes/ActiveRecord/Scoping/Named/ClassMethods.html</a></p>
 
 <pre class="ruby"><span class="ruby-string">&quot;A scope represents a narrowing of a database query, such as 
@@ -502,18 +534,31 @@ APP to maintain RI.</p>
 <p>In Rails 3.1, the asset pipeline is enabled by default.</p>
 
 <p>Comprised of:</p>
+<ul><li>
+<p>Sprockets</p>
 
-<pre>Sprockets: Compiles assets in specified paths together and places them in target path eg &#39;public/assets&#39;
-Tilt: Template engine like allows files like &#39;.scss&#39; and &#39;.erb&#39;</pre>
+<p>Compiles assets in specified paths together and places them in target path
+eg &#39;public/assets&#39;</p>
+</li><li>
+<p>Tilt</p>
 
-<p>Manifest files</p>
+<p>Template engine like allows files like &#39;.scss&#39; and &#39;.erb&#39;</p>
+</li></ul>
 
-<pre>(See http://guides.rubyonrails.org/asset_pipeline.html)
+<p>Manifest files (See <a
+href="http://guides.rubyonrails.org/asset_pipeline.html">guides.rubyonrails.org/asset_pipeline.html</a>)</p>
+<ul><li>
+<p><a
+href="https://github.com/ConradIrwin/sprockets/blob/master/README.md#the-directive-processor">github.com/ConradIrwin/sprockets/blob/master/README.md#the-directive-processor</a></p>
+</li><li>
+<p>In JavaScript files, Sprockets directives begin with &#39;//=&#39;</p>
+</li><li>
+<p>Multiple Sass files should use &#39;@import&#39; rather than Sprockets
+&#39;*=&#39; directives</p>
 
-In JavaScript files, Sprockets directives begin with &#39;//=&#39;
-
-Multiple Sass files should use &#39;@import&#39; rather than Sprockets &#39;*=&#39; directives
-  Sprockets directives cause Sass files to exist in their own scope so variables + mixins ONLY AVAILABLE in defining doc</pre>
+<p>Sprockets directives cause Sass files to exist in their own scope so
+variables + mixins ONLY AVAILABLE in defining doc</p>
+</li></ul>
 
 <h1 id="label-14+-+Rails+4.0">14 - Rails 4.0<span><a href="#label-14+-+Rails+4.0">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
@@ -595,6 +640,116 @@ href="http://www.idyllic-software.com/blog/understanding-railtie-and-mountable-r
 <ul><li>
 <p>$ gem  dependency json –reverse-dependencies</p>
 </li></ul>
+
+<h1 id="label-19+-+Named+yield+-2B+-27content_for-27">19 - Named yield + &#39;content_for&#39;<span><a href="#label-19+-+Named+yield+-2B+-27content_for-27">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>(26/9/16)</p>
+
+<p><a
+href="http://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method">guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method</a></p>
+<ul><li>
+<p>spree/frontend/app/views/spree/layouts/spree_application.html.erb</p>
+
+<pre>...
+&lt;div class=&quot;container&quot;&gt;
+    ...
+    &lt;div class=&quot;row&quot; data-hook&gt;
+      ...
+      &lt;%= render partial: &#39;spree/shared/sidebar&#39; if content_for? :sidebar %&gt;
+      ...
+    &lt;/div&gt;
+&lt;/div&gt;
+...</pre>
+</li><li>
+<p>spree/frontend/app/views/spree/home/index.html.erb</p>
+
+<pre>&lt;% content_for :sidebar do %&gt;
+  &lt;div data-hook=&quot;homepage_sidebar_navigation&quot;&gt;
+    &lt;%= render :partial =&gt; &#39;spree/shared/taxonomies&#39; %&gt;
+  &lt;/div&gt;
+&lt;% end %&gt;
+...</pre>
+</li><li>
+<p>spree/frontend/app/views/spree/shared/_sidebar.html.erb</p>
+
+<pre>&lt;aside id=&quot;sidebar&quot; class=&quot;col-sm-4 col-md-3&quot; data-hook&gt;
+  &lt;%= yield :sidebar %&gt;
+&lt;/aside&gt;</pre>
+</li></ul>
+
+<h1 id="label-20+-+Caching">20 - Caching<span><a href="#label-20+-+Caching">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>(15/10/16)</p>
+
+<p><a
+href="http://guides.rubyonrails.org/caching_with_rails.html">guides.rubyonrails.org/caching_with_rails.html</a></p>
+
+<p><a
+href="http://api.rubyonrails.org/classes/ActiveSupport/Cache/Store.html">api.rubyonrails.org/classes/ActiveSupport/Cache/Store.html</a></p>
+
+<p>&gt; Rails.cache.clear</p>
+
+<h1 id="label-21+-+Rake">21 - Rake<span><a href="#label-21+-+Rake">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h3 id="label-spree_auth-3Aadmin-3Acreate">spree_auth:admin:create<span><a href="#label-spree_auth-3Aadmin-3Acreate">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>(15/10/16)</p>
+<ul><li>
+<p>rake -W spree_auth:admin:create</p>
+
+<p>spree_auth_devise-1ac9dcc33049/lib/tasks/auth.rake:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>), <span class="ruby-string">&#39;..&#39;</span>, <span class="ruby-string">&#39;..&#39;</span>, <span class="ruby-string">&#39;db&#39;</span>, <span class="ruby-string">&#39;default&#39;</span>, <span class="ruby-string">&#39;users.rb&#39;</span>)
+</pre>
+
+<p>spree_auth_devise-1ac9dcc33049/db/default/users.rb:</p>
+
+<p>(See <a href="#label-Scoping">Scoping</a>)</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">create_admin_user</span>
+  <span class="ruby-identifier">load</span> <span class="ruby-string">&#39;spree/user.rb&#39;</span>
+  <span class="ruby-comment"># cutdown...</span>
+  <span class="ruby-identifier">admin</span> = <span class="ruby-constant">Spree</span><span class="ruby-operator">::</span><span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">role</span> = <span class="ruby-constant">Spree</span><span class="ruby-operator">::</span><span class="ruby-constant">Role</span>.<span class="ruby-identifier">find_or_create_by</span>(<span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;admin&#39;</span>)
+  <span class="ruby-identifier">admin</span>.<span class="ruby-identifier">spree_roles</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">role</span>
+  <span class="ruby-identifier">admin</span>.<span class="ruby-identifier">save</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># &gt; Spree::User.admin.class</span>
+<span class="ruby-comment">#   =&gt; Spree::User::ActiveRecord_Relation </span>
+
+<span class="ruby-comment"># &gt; Spree::User.method(:admin).source_location</span>
+<span class="ruby-comment">#   =&gt; [&quot;/Users/doug/.rvm/gems/ruby-2.2.2/gems/activerecord-4.2.7.1/lib/active_record/scoping/named.rb&quot;, 154]</span>
+
+<span class="ruby-comment"># spree_auth_devise-1ac9dcc33049/app/models/spree/user.rb:</span>
+<span class="ruby-comment">#   scope :admin, -&gt; { includes(:spree_roles).where(&quot;#{roles_table_name}.name&quot; =&gt; &quot;admin&quot;) }</span>
+
+<span class="ruby-keyword">if</span> <span class="ruby-constant">Spree</span><span class="ruby-operator">::</span><span class="ruby-constant">User</span>.<span class="ruby-identifier">admin</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">create_admin_user</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;Admin user has already been previously created.&#39;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">agree</span>(<span class="ruby-string">&#39;Would you like to create a new admin user? (yes/no)&#39;</span>)
+    <span class="ruby-identifier">create_admin_user</span>
+  <span class="ruby-keyword">else</span>
+   <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;No admin user created.&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li></ul>
+
+<h1 id="label-22+-+Bundler">22 - Bundler<span><a href="#label-22+-+Bundler">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>(27/10/16)</p>
+
+<p>Wrapper around RubyGems for handling version dependencies:</p>
+<ul><li>
+<p><a href="https://github.com/bundler/bundler">github.com/bundler/bundler</a></p>
+</li><li>
+<p><a href="https://rubygems.org">rubygems.org</a>/</p>
+</li></ul>
+
+<p><a
+href="https://www.youtube.com/watch?v=4_TqAMWbzfw">www.youtube.com/watch?v=4_TqAMWbzfw</a></p>
 </main>
 
 

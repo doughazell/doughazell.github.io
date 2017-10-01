@@ -6,6 +6,8 @@
 
 <title>mac-cmds - RDoc Documentation</title>
 
+  
+  
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,6 +18,8 @@
   ga('send', 'pageview');
 
 </script>
+
+  
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -66,16 +70,25 @@
   <h3>Table of Contents</h3>
 
   <ul class="link-list" role="directory">
+    <li><a href="#label-MacBook+5.1">MacBook 5.1</a>
     <li><a href="#label-Reinstall+SnowLeopard">Reinstall SnowLeopard</a>
     <li><a href="#label-1+-+Eject+stuck+DVD">1 - Eject stuck DVD</a>
     <li><a href="#label-2+-+Create+subdomains">2 - Create subdomains</a>
     <li><a href="#label-3+-+Grep+only+certain+files">3 - Grep only certain files</a>
     <li><a href="#label-3b+-+Grep+hidden+files">3b - Grep hidden files</a>
-    <li><a href="#label-4+-+Toggle+case+in+Vi">4 - Toggle case in Vi</a>
+    <li><a href="#label-4+-+Vi">4 - Vi</a>
     <li><a href="#label-5+-+Package+management+systems">5 - Package management systems</a>
+    <li><a href="#label-5c+-+Homebrew+auto-updates">5c - Homebrew auto-updates</a>
+    <li><a href="#label-5c+-+Homebrew+docs">5c - Homebrew docs</a>
+    <li><a href="#label-5c+-+Homebrew+commands">5c - Homebrew commands</a>
     <li><a href="#label-6+-+Nested+backticks">6 - Nested backticks</a>
     <li><a href="#label-7+-+Share+files+with+linux">7 - Share files with linux</a>
+    <li><a href="#label-Accessing+OSX+fs+from+linux">Accessing OSX fs from linux</a>
+    <li><a href="#label-Accessing+linux+fs+from+OSX">Accessing linux fs from OSX</a>
     <li><a href="#label-8+-+Booting+MacBook+5.1+into+64-bit+mode">8 - Booting MacBook 5.1 into 64-bit mode</a>
+    <li><a href="#label-9+-+Disk+commands">9 - Disk commands</a>
+    <li><a href="#label-10+-+Open+file+from+Terminal">10 - Open file from Terminal</a>
+    <li><a href="#label-11+-+Time+of+suspend-2Fwake">11 - Time of suspend/wake</a>
   </ul>
 </div>
 
@@ -92,13 +105,19 @@
   
     <li><a href="./git-cmds_txt.html">git-cmds</a>
   
+    <li><a href="./home_txt.html">home</a>
+  
     <li><a href="./java_txt.html">java</a>
   
     <li><a href="./mac-cmds_txt.html">mac-cmds</a>
   
     <li><a href="./metaprogramming_txt.html">metaprogramming</a>
   
+    <li><a href="./opensource-projects_txt.html">opensource-projects</a>
+  
     <li><a href="./psql_txt.html">psql</a>
+  
+    <li><a href="./python_txt.html">python</a>
   
     <li><a href="./rails-cmds_txt.html">rails-cmds</a>
   
@@ -137,6 +156,25 @@
 </nav>
 
 <main role="main" aria-label="Page mac-cmds.txt">
+
+<h1 id="label-MacBook+5.1">MacBook 5.1<span><a href="#label-MacBook+5.1">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p><a
+href="https://en.wikipedia.org/wiki/MacBook#Model_specifications_2">en.wikipedia.org/wiki/MacBook#Model_specifications_2</a></p>
+
+<p>Release date: October 14, 2008 (ie 8 years old now!)</p>
+</li><li>
+<p><a
+href="https://en.wikipedia.org/wiki/MacBook#Timeline_of_the_MacBook_family">en.wikipedia.org/wiki/MacBook#Timeline_of_the_MacBook_family</a></p>
+
+<p>Therefore the aluminium unibody MacBook had a very short shelf life before
+becoming MacBook Pro!</p>
+
+<pre>It&#39;s amazing that I didn&#39;t realise that before 23 Nov 2016
+(but ringing bells about what I was told when bought in Oxford Apple store on Sat 2 May 2009), 
+
+and the result of trying to upgrade to Xenial Xerus on 3 Nov 2016, 7.5 years (90 months) later... :)</pre>
+</li></ul>
 
 <h1 id="label-Reinstall+SnowLeopard">Reinstall SnowLeopard<span><a href="#label-Reinstall+SnowLeopard">&para;</a> <a href="#top">&uarr;</a></span></h1>
 <ul><li>
@@ -245,29 +283,89 @@ Recordings&#39; (that may be used to check prior install)</p>
 
 <p>$ grep -i path .*</p>
 
-<h1 id="label-4+-+Toggle+case+in+Vi">4 - Toggle case in Vi<span><a href="#label-4+-+Toggle+case+in+Vi">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<h1 id="label-4+-+Vi">4 - Vi<span><a href="#label-4+-+Vi">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Toggle case under cursor</p>
 
-<p>~ = Toggle case under cursor</p>
+<pre>~</pre>
+</li><li>
+<p>Show hidden characters</p>
+
+<pre>:set list
+:set nolist</pre>
+</li><li>
+<p>Multiple windows</p>
+
+<p><a
+href="https://www.cs.oberlin.edu/~kuperman/help/vim/windows.html">www.cs.oberlin.edu/~kuperman/help/vim/windows.html</a></p>
+
+<pre>:split
+ctrl-w arrow (move windows)
+:hide</pre>
+</li></ul>
 
 <h1 id="label-5+-+Package+management+systems">5 - Package management systems<span><a href="#label-5+-+Package+management+systems">&para;</a> <a href="#top">&uarr;</a></span></h1>
 <ul><li>
 <p>MacPorts - Based on FreeBSD Ports system [NOW, NOT INSTALLED ON MY SNOW
 LEOPARD REINSTALL]</p>
 
-<p>Eschews Apple-supplied libs and links against its own to ensure consistency
-Uses &#39;subversion&#39; as its code manager</p>
+<p>Eschews Apple-supplied libs and links against its own to ensure consistency</p>
+
+<p>Uses &#39;subversion&#39; as its code manager</p>
 </li><li>
 <p>Fink - Based on Debian&#39;s dpkg and apt-get [NOT INSTALLED ON MY SNOW
 LEOPARD]</p>
 </li><li>
 <p>Homebrew - Overcome MacPorts perceived downfalls</p>
 
-<p>Written in Ruby + works with OSX&#39;s existing frameworks/libs Uses
-&#39;git&#39; as its code manager</p>
+<p>Written in Ruby + works with OSX&#39;s existing frameworks/libs</p>
 
-<p>Formula: /usr/local/Library/Formula Downloads: /Library/Caches/Homebrew</p>
+<p>Uses &#39;git&#39; as its code manager</p>
 
-<p>$ brew install –cc=gcc-5 poco</p>
+<p>Formula: /usr/local/Library/Formula</p>
+
+<p>Downloads: /Library/Caches/Homebrew</p>
+
+<pre>$ brew install --cc=gcc-5 poco</pre>
+</li></ul>
+
+<h3 id="label-5c+-+Homebrew+auto-updates">5c - Homebrew auto-updates<span><a href="#label-5c+-+Homebrew+auto-updates">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Homebrew auto-updates (<a
+href="https://github.com/Homebrew/brew/issues/288">github.com/Homebrew/brew/issues/288</a>)</p>
+
+<p>but 1.1.0 requires CLI &gt; 4.0 (<a
+href="https://github.com/Homebrew/brew/commit/4015d0465a975aaac26d5a47395ab61e29d1702f">github.com/Homebrew/brew/commit/4015d0465a975aaac26d5a47395ab61e29d1702f</a>)</p>
+
+<p>In order to keep SnowLeopard running a bit longer (although the
+death-sentence is looming…)</p>
+<ul><li>
+<p>Set &#39;brew&#39; to 1.0.9 tag</p>
+
+<pre>$ cd /usr/local/Homebrew ; git reset --hard 1.0.9</pre>
+</li><li>
+<p>&#39;export HOMEBREW_NO_AUTO_UPDATE=1&#39; in &#39;~/.profile&#39;</p>
+</li></ul>
+
+<h3 id="label-5c+-+Homebrew+docs">5c - Homebrew docs<span><a href="#label-5c+-+Homebrew+docs">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>(See <a href="#label-10+-+Open+file+from+Terminal">10 - Open file from
+Terminal</a>)</p>
+
+<h3 id="label-5c+-+Homebrew+commands">5c - Homebrew commands<span><a href="#label-5c+-+Homebrew+commands">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Revert to previous version of package &#39;readline&#39;</p>
+
+<pre>$ brew info readline
+$ brew switch readline 6.3.8</pre>
+</li><li>
+<p>Edit brew formula</p>
+
+<pre>$ brew edit python</pre>
+</li><li>
+<p>Reinstall formula</p>
+
+<pre>$ brew reinstall python</pre>
 </li></ul>
 
 <h1 id="label-6+-+Nested+backticks">6 - Nested backticks<span><a href="#label-6+-+Nested+backticks">&para;</a> <a href="#top">&uarr;</a></span></h1>
@@ -279,6 +377,8 @@ LEOPARD]</p>
 <p>$ pushd $(dirname $(which rails));</p>
 
 <h1 id="label-7+-+Share+files+with+linux">7 - Share files with linux<span><a href="#label-7+-+Share+files+with+linux">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<h3 id="label-Accessing+OSX+fs+from+linux">Accessing OSX fs from linux<span><a href="#label-Accessing+OSX+fs+from+linux">&para;</a> <a href="#top">&uarr;</a></span></h3>
 
 <p>(15/5/16)</p>
 <ul><li>
@@ -300,6 +400,31 @@ LEOPARD]</p>
 
 <p>$ sudo chmod -R 777 src</p>
 </li></ul>
+
+<h3 id="label-Accessing+linux+fs+from+OSX">Accessing linux fs from OSX<span><a href="#label-Accessing+linux+fs+from+OSX">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>(4/11/16)</p>
+
+<p>(<a
+href="http://osxdaily.com/2014/03/20/mount-ext-linux-file-system-mac">osxdaily.com/2014/03/20/mount-ext-linux-file-system-mac</a>/)</p>
+<ul><li>
+<p>Install OSXFuse</p>
+
+<p><a
+href="https://github.com/osxfuse/osxfuse/releases/download/osxfuse-3.5.3/osxfuse-3.5.3.dmg">github.com/osxfuse/osxfuse/releases/download/osxfuse-3.5.3/osxfuse-3.5.3.dmg</a></p>
+
+<p><a href="https://osxfuse.github.io">osxfuse.github.io</a>/</p>
+</li><li>
+<p>Install &#39;fuse-ext2-0.0.7.dmg&#39;</p>
+
+<p><a
+href="https://sourceforge.net/projects/fuse-ext2">sourceforge.net/projects/fuse-ext2</a>/</p>
+</li><li>
+<p>$ sudo fuse-ext2 /dev/disk0s3 ~/ubuntu/</p>
+</li></ul>
+
+<p>(<a
+href="https://github.com/alperakcan/fuse-ext2/issues/35#issuecomment-258617429">github.com/alperakcan/fuse-ext2/issues/35#issuecomment-258617429</a>)</p>
 
 <h1 id="label-8+-+Booting+MacBook+5.1+into+64-bit+mode">8 - Booting MacBook 5.1 into 64-bit mode<span><a href="#label-8+-+Booting+MacBook+5.1+into+64-bit+mode">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
@@ -329,6 +454,40 @@ $ cd ~/Downloads/x64patch-10.6.8 ; more readme.txt</pre>
 <p>Holding down 3 + 2 until Apple appears gives:</p>
 
 <pre>64-bit Kernel and Extensions: No</pre>
+
+<h1 id="label-9+-+Disk+commands">9 - Disk commands<span><a href="#label-9+-+Disk+commands">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>(14/11/16)</p>
+<ul><li>
+<p>$ sudo diskutil unmount /Volumes/DISK0S3</p>
+</li><li>
+<p>$ diskutil mount /dev/disk0s3</p>
+</li><li>
+<p>$ diskutil info /dev/disk0s3</p>
+</li><li>
+<p>$ diskutil zeroDisk /dev/disk0s3</p>
+</li><li>
+<p>$ diskutil listFilesystems</p>
+
+<pre>&quot;fuse-ext2&quot; listed (but not in Disk Utility)
+&quot;Free Space&quot; is also listed</pre>
+</li></ul>
+
+<h1 id="label-10+-+Open+file+from+Terminal">10 - Open file from Terminal<span><a href="#label-10+-+Open+file+from+Terminal">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>(11/12/16)</p>
+
+<p>Like double clicking in Finder:</p>
+
+<pre>$ cd `brew --repository`/docs
+$ open brew.1.html</pre>
+
+<h1 id="label-11+-+Time+of+suspend-2Fwake">11 - Time of suspend/wake<span><a href="#label-11+-+Time+of+suspend-2Fwake">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>(2/4/17)</p>
+
+<pre>$ grep SleepWakeCallback /var/log/system.log
+$ bzcat /var/log/system.log.*|grep SleepWakeCallback</pre>
 </main>
 
 

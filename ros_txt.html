@@ -6,6 +6,8 @@
 
 <title>ros - RDoc Documentation</title>
 
+  
+  
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -16,6 +18,8 @@
   ga('send', 'pageview');
 
 </script>
+
+  
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
@@ -88,13 +92,19 @@
   
     <li><a href="./git-cmds_txt.html">git-cmds</a>
   
+    <li><a href="./home_txt.html">home</a>
+  
     <li><a href="./java_txt.html">java</a>
   
     <li><a href="./mac-cmds_txt.html">mac-cmds</a>
   
     <li><a href="./metaprogramming_txt.html">metaprogramming</a>
   
+    <li><a href="./opensource-projects_txt.html">opensource-projects</a>
+  
     <li><a href="./psql_txt.html">psql</a>
+  
+    <li><a href="./python_txt.html">python</a>
   
     <li><a href="./rails-cmds_txt.html">rails-cmds</a>
   
@@ -159,9 +169,12 @@ href="http://wiki.ros.org/rosbuild/CMakeLists#rosbuild_genmsg">wiki.ros.org/rosb
 <pre>$ mkdir ~/rosbuild_ws ; cd ~/rosbuild_ws
 $ rosws init . /opt/ros/indigo
 $ mkdir package_dir
-$ rosws set ~/rosbuild_ws/package_dir -t .
+$ rosws set ~/rosbuild_ws/package_dir -t .</pre>
 
-$ echo &quot;source ~/rosbuild_ws/setup.bash&quot; &gt;&gt; ~/.bashrc
+<p><a
+href="http://docs.ros.org/independent/api/rosinstall/html/rosws.html#set">docs.ros.org/independent/api/rosinstall/html/rosws.html#set</a></p>
+
+<pre>$ echo &quot;source ~/rosbuild_ws/setup.bash&quot; &gt;&gt; ~/.bashrc
 $ bash
 
 $ cd package_dir ; git clone https://github.com/tum-vision/lsd_slam
@@ -194,13 +207,25 @@ $ rosrun beginner_tutorials talker</pre>
 
 <h1 id="label-u2+-+Catkin">u2 - Catkin<span><a href="#label-u2+-+Catkin">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<p><a
-href="http://wiki.ros.org/catkin/conceptual_overview#Why_catkin.3F_Motivation_to_move_away_from_rosbuild">wiki.ros.org/catkin/conceptual_overview#Why_catkin.3F_Motivation_to_move_away_from_rosbuild</a></p>
-
 <pre>$ mkdir ~/catkin_ws ; cd ~/catkin_ws
 $ catkin_init_workspace
 $ catkin_make
 $ source devel/setup.bash</pre>
+
+<p><a
+href="http://wiki.ros.org/catkin/conceptual_overview#Why_catkin.3F_Motivation_to_move_away_from_rosbuild">wiki.ros.org/catkin/conceptual_overview#Why_catkin.3F_Motivation_to_move_away_from_rosbuild</a></p>
+<ul><li>
+<p>“In rosbuild, when we invoke the build system, we have to call custom
+scripts provided with rosbuild such as rosmake. rosmake is a Bash script
+that calls make which itself calls CMake which generates yet another
+makefile and finally invoking make again!</p>
+
+<p>Catkin is much more elegant and is invoked by simply invoking CMake.</p>
+
+<p>Catkin is implemented as custom CMake macros along with some Python code.
+As CMake and Python are portable,  catkin is easily portable to any system
+that supports both Python and CMake.“</p>
+</li></ul>
 
 <h3 id="label-C-2B-2B+Publisher-2FSubscriber+-28http-3A-2F-2Fwiki.ros.org-2FROS-2FTutorials-2FWritingPublisherSubscriber-2528c-252B-252B-2529-29">C++ Publisher/Subscriber (<a href="http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29">wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29</a>)<span><a href="#label-C-2B-2B+Publisher-2FSubscriber+-28http-3A-2F-2Fwiki.ros.org-2FROS-2FTutorials-2FWritingPublisherSubscriber-2528c-252B-252B-2529-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
 
